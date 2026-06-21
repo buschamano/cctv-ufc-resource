@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>UFC 观察站 · 从第一眼认出它</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f5f9fb;
+      color: #1f2a36;
+      line-height: 1.6;
+      padding: 1.5rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem 1.5rem 2.8rem;
+      box-shadow: 0 8px 24px rgba(0, 50, 60, 0.06);
+    }
+
+    /* hero */
+    .hero-short {
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .hero-short h1 {
+      font-size: 2.2rem;
+      font-weight: 450;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #0b3b44;
+      border-left: 5px solid #2f9e9e;
+      padding-left: 1.1rem;
+    }
+
+    .hero-short .tagline {
+      margin-top: 0.6rem;
+      font-size: 1.05rem;
+      color: #3d616b;
+      background: #e9f3f5;
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+    }
+
+    /* 承接段落 */
+    .bridging {
+      background: #f1f9fb;
+      padding: 1.6rem 1.5rem;
+      border-radius: 1.5rem;
+      margin-bottom: 2.6rem;
+      border: 1px solid #d6e9ed;
+    }
+
+    .bridging p {
+      font-size: 1.02rem;
+      color: #1a3a42;
+    }
+
+    .bridging strong {
+      color: #136c6c;
+      font-weight: 500;
+    }
+
+    /* 特点卡片网格 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 1.2rem;
+      padding: 1.2rem 1rem;
+      box-shadow: 0 2px 12px rgba(30, 80, 80, 0.06);
+      border: 1px solid #d9eef0;
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(28, 90, 90, 0.07);
+    }
+
+    .feature-card span {
+      display: inline-block;
+      background: #d3edee;
+      color: #0b5057;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #114a52;
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #2f4e5a;
+      line-height: 1.5;
+    }
+
+    /* 温和结尾区块 */
+    .gentle-outro {
+      background: #edf7f7;
+      border-radius: 1.6rem;
+      padding: 1.8rem 1.5rem;
+      margin: 1.8rem 0 1.2rem;
+      border-left: 6px solid #2f9e9e;
+    }
+
+    .gentle-outro p {
+      font-size: 1rem;
+      color: #1b444b;
+      margin-bottom: 0.7rem;
+    }
+
+    .gentle-outro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .gentle-outro .link-sentence {
+      font-size: 1.05rem;
+      background: #ddeef0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    .gentle-outro a {
+      color: #105f6b;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1.5px solid #81c4c4;
+      padding-bottom: 0.05rem;
+    }
+
+    .gentle-outro a:hover {
+      border-bottom-color: #2a8a8a;
+      color: #08333b;
+    }
+
+    /* FAQ摘要 */
+    .faq-mini {
+      margin: 2rem 0 0.6rem;
+    }
+
+    .faq-mini details {
+      background: #f4fafb;
+      border: 1px solid #d2eaed;
+      border-radius: 1.4rem;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.7rem;
+      transition: background 0.15s;
+    }
+
+    .faq-mini details[open] {
+      background: #e9f4f5;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #144e58;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.2rem 0;
+    }
+
+    .faq-mini summary::marker {
+      color: #398b8b;
+    }
+
+    .faq-mini details p {
+      font-size: 0.9rem;
+      color: #2d535d;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    hr {
+      margin: 1.8rem 0 0.6rem;
+      border: none;
+      border-top: 1px solid #d3e7ea;
+    }
+
+    .small-note {
+      font-size: 0.8rem;
+      color: #64838b;
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .container {
+        padding: 1.5rem 1rem 2rem;
+      }
+      .hero-short h1 {
+        font-size: 1.8rem;
+        padding-left: 0.9rem;
+      }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+      }
+      .feature-card {
+        padding: 1rem 0.9rem;
+      }
+      .bridging {
+        padding: 1.2rem;
+      }
+      .gentle-outro {
+        padding: 1.3rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- 开场短句 -->
+  <div class="hero-short">
+    <h1>一眼认出它：<br>一个专注 UFC 的站点</h1>
+    <div class="tagline">从赛程到选手 · 不绕弯</div>
+  </div>
+
+  <!-- 承接段落，帮用户快速识别用途 -->
+  <div class="bridging">
+    <p>
+      当你打开一个页面，最希望的就是立刻知道「这里是做什么的」。  
+      这个网站没有多余装饰，它的核心线索就是 <strong>UFC</strong> —— 从赛事日历、对阵表，到各级别冠军变动，信息都放在明处。  
+      如果你正在寻找一个能快速确认比赛时间、了解近期重点格斗事件的地方，那么这里就是为这个目的准备的。
+    </p>
+  </div>
+
+  <!-- 特点列表：网格卡片（四个特点） -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <span>📅 赛历</span>
+      <h3>紧凑赛程</h3>
+      <p>按月份列出已确认的数字赛与格斗之夜，日期、主赛、地点一目了然。</p>
+    </div>
+    <div class="feature-card">
+      <span>🥇 冠军</span>
+      <h3>级别动态</h3>
+      <p>各重量级现任冠军、挑战者排名与近期卫冕战结果，每周更新。</p>
+    </div>
+    <div class="feature-card">
+      <span>📋 对阵</span>
+      <h3>完整战卡</h3>
+      <p>每期赛事从主赛到副赛名单，包含选手胜负记录与交手背景。</p>
+    </div>
+    <div class="feature-card">
+      <span>🔔 提醒</span>
+      <h3>简易追踪</h3>
+      <p>标记你关注的比赛，页面提供按时间排序的专属提醒列表。</p>
+    </div>
+  </div>
+
+  <!-- 温和结尾 + 链接自然嵌入句子，可见文本严格等于 'ufc' -->
+  <div class="gentle-outro">
+    <p>
+      如果你开始对综合格斗产生兴趣，或者只是需要一处能快速查阅 UFC 信息的地方，这个页面会是一个不错的起点。
+    </p>
+    <p>
+      很多访客后来都会习惯性地先来<a href="https://cctv-ufc.com">ufc</a>页面扫一眼，因为它简单、直接，不堆砌无关的内容。
+    </p>
+    <div class="link-sentence">
+      把网址存下来，下次想看比赛日的时候，就省去搜索的功夫了。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要（两个问题） -->
+  <div class="faq-mini">
+    <details>
+      <summary>这里的赛程包含所有 UFC 赛事吗？</summary>
+      <p>主要收录已官宣的数字赛和格斗之夜，以及部分 announced 的赛事。极少数临时变更或非公开赛事可能略有延迟，但核心对阵均会同步。</p>
+    </details>
+    <details>
+      <summary>页面会更新冠军变动吗？</summary>
+      <p>是的。每当头衔易主或官方排名调整，相应级别卡片会在 24 小时内反映最新状态。你可以将它作为轻量级的冠军参考页。</p>
+    </details>
+  </div>
+
+  <hr>
+  <div class="small-note">
+    界面风格 · 蓝绿网格卡片 · 移动端优先
+  </div>
+</div>
+</body>
+</html>
